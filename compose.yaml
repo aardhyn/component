@@ -1,0 +1,15 @@
+services:
+  component:
+    container_name: app
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    volumes:
+      - type: bind
+        source: ./editor/public
+        target: /opt/public
+      - type: bind
+        source: ./editor/src/modules
+        target: /opt/modules
