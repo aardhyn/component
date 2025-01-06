@@ -1,22 +1,14 @@
 import { ReactElement } from 'react';
 import {
-  DrawLine,
-  Expression,
+  type DrawLine,
   Component,
   IsLiteral,
   IsBinaryOperation,
+  IsNumericVariable,
 } from 'types';
 import { BlockRoot } from '../generic';
 import { s } from 'theme/stitches.config';
-import { BinaryExpression } from 'program/components/expressions/Operation';
-import { LiteralExpression } from '../expressions/Literal';
-import { VariableExpression } from '../expressions/Variable';
-import { IsNumericVariable, IsVariable } from 'types/predicates';
-import { ExpressionDropzone } from 'program/components/dropzone';
-import {
-  GenericExpression,
-  GenericExpressionOptions,
-} from '../expressions/Expression';
+import { GenericExpression } from '../expressions/Expression';
 
 export default function DrawLineBlock({
   block,

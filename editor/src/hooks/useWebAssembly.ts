@@ -1,4 +1,4 @@
-import { useState, useEffect, RefObject } from 'react';
+import { useState, useEffect } from 'react';
 
 export type GenericModule<T> = {
   module: T | null;

@@ -3,6 +3,8 @@ import {
   IsCondition,
   IsBinaryOperation,
   PrimitiveType,
+  conditions,
+  IsUnaryOperation,
 } from 'types';
 import { ExpressionDropzone } from '../dropzone';
 import { ExpressionParent } from './types';
@@ -10,11 +12,9 @@ import { VariableExpression } from './Variable';
 import { BinaryExpression } from './Operation';
 import { SubscriptExpression } from './Subscript';
 import { LiteralExpression } from './Literal';
-import { ReactElement, ReactNode } from 'react';
-import { conditions } from '../types';
+import { ReactElement } from 'react';
 import { ConditionExpression } from './Condition';
 import { ListExpression } from './List';
-import { IsUnaryOperation } from '../../../types/predicates';
 import { UnaryOperationExpression } from './Unary';
 
 export type GenericExpressionOptions = {

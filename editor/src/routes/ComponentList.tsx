@@ -1,5 +1,4 @@
 import { s, styled } from 'theme/stitches.config';
-import { ComponentType } from 'types';
 import {
   conditions,
   binaryOperators,
@@ -8,7 +7,8 @@ import {
   loops,
   Variable,
   variables,
-} from 'program/components/types';
+  ComponentType,
+} from 'types';
 import { CreateComponent } from 'util/components';
 import { GetJsxComponent } from 'program/components/generic';
 import useComponentStore, { useVariableStore } from 'program/store';

@@ -1,10 +1,15 @@
 import { styled } from 'theme/stitches.config';
-import { Component, IsCondition, IsLiteral, IsSubscript } from 'types';
 import GenericBlockSet from './BlockSet';
 import { BlockRoot } from '../generic';
-import { While } from '../types';
 import { GenericExpression } from '../expressions/Expression';
-import { IsVariable } from '../../../types/predicates';
+import {
+  type While,
+  Component,
+  IsCondition,
+  IsLiteral,
+  IsSubscript,
+  IsVariable,
+} from 'types';
 
 export function WhileBlock({
   block,

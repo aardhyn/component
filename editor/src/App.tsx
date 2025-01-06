@@ -1,4 +1,3 @@
-import CoreModuleConsumer from 'consumers/CoreModuleConsumer';
 import { Drag } from './util/Drag';
 import Layout from 'routes/Layout';
 import { useGlobalStyles } from './theme/stitches.config';

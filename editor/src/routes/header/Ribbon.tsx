@@ -4,8 +4,7 @@ import { IconButton } from 'components/ui/Button';
 import { loadFile, saveFile } from 'util/filesystem';
 import { DownloadIcon, TrashIcon, UploadIcon } from '@radix-ui/react-icons';
 import Spacer from 'components/util/Spacer';
-import { IsBlock } from '../../types/predicates';
-import { Block } from 'types';
+import { IsBlock, Block } from 'types';
 
 const confirmDelete = () =>
   confirm(

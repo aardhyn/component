@@ -1,22 +1,16 @@
-import { Decrement, Increment } from '../program/components/types';
 import {
+  Decrement,
+  Increment,
   UnaryOperation,
   binaryOperators,
   unaryOperators,
-} from '../program/components/types';
-import {
   List,
   listOperations,
   RenderType,
   variables,
   VariableType,
-} from 'program/components/types';
-import {
   Subscript,
-  ListOperations,
   ListOperationType,
-} from '../program/components/types';
-import {
   Loop,
   loops,
   LoopType,

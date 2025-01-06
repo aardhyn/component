@@ -1,5 +1,4 @@
 import { styled } from 'theme/stitches.config';
-import { CoreApi } from 'types';
 import Ribbon from './header/Ribbon';
 import Title from './header/Title';
 import LeftSidebar from './left';

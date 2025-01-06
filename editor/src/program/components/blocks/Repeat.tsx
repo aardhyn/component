@@ -1,12 +1,7 @@
-import { Component, IsLiteral, IsNumericVariable, Repeat } from 'types';
+import { Component, IsLiteral, IsNumericVariable, type Repeat } from 'types';
 import { BlockRoot } from '../generic';
 import GenericBlockSet from './BlockSet';
-import { useState } from 'react';
-import { s, CSS, styled } from 'theme/stitches.config';
-import { useMutateComponent } from 'program';
-import { LiteralExpression } from '../expressions/Literal';
-import { VariableExpression } from '../expressions/Variable';
-import { uuid } from 'util/uuid';
+import { s, styled } from 'theme/stitches.config';
 import { GenericExpression } from '../expressions/Expression';
 
 export const MIN_REPEAT_WIDTH = 48;

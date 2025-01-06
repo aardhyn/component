@@ -1,16 +1,9 @@
-import { ReactElement } from 'react';
 import { Drag } from 'util/Drag';
-import { IsLiteral } from 'types';
 import { ExpressionParent } from './types';
-import { Component, Size, Subscript } from '../types';
-import {
-  IsList,
-  IsNumericVariable,
-  IsSubscript,
-  IsVariable,
-} from 'types/predicates';
+import { IsList, IsSubscript, IsVariable } from 'types/predicates';
 import { ExpressionDropzone } from 'program/components/dropzone';
 import { GenericExpression } from './Expression';
+import { Component, Size } from 'types';
 
 export function SizeExpression({
   expression,

@@ -1,7 +1,7 @@
 import { styled } from 'theme/stitches.config';
 import useDragPanePrimitive from 'hooks/useDragPanePrimitive';
 import DragHandle from 'components/util/DragHandle';
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import { IconButton } from 'components/ui/Button';
 import { H5 } from 'theme/Typography';
 import { ArrowDownIcon, ResetIcon } from '@radix-ui/react-icons';

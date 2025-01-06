@@ -1,14 +1,19 @@
 import { ReactElement } from 'react';
 import { Drag } from 'util/Drag';
-import { UnaryOperation } from 'types';
 import { ExpressionParent } from './types';
-import { VariableExpression } from './Variable';
-import { Component, UnaryOperand, Increment, Decrement } from '../types';
-import { IsLiteral, IsVariable, IsSubscript } from 'types/predicates';
+import {
+  IsLiteral,
+  IsVariable,
+  IsSubscript,
+  IsBinaryOperation,
+  UnaryOperation,
+  Increment,
+  Decrement,
+  Component,
+} from 'types';
 import { ExpressionDropzone } from 'program/components/dropzone';
 import { GenericExpression } from './Expression';
 import { BlockRoot } from '../generic';
-import { IsBinaryOperation } from '../../../types/predicates';
 
 export function UnaryOperationBlock({
   block,

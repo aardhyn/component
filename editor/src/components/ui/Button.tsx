@@ -1,7 +1,6 @@
 import { VariantProps } from '@stitches/react';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { s, styled, CSS } from 'theme/stitches.config';
-import { variables, componentTypes } from '../../program/components/types';
 
 export function Button({
   children,

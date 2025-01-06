@@ -1,6 +1,6 @@
 import { s } from 'theme/stitches.config';
 import { BlockRoot } from '../generic';
-import { Exit } from '../types';
+import { Exit } from 'types';
 
 export function ExitBlock({
   block,

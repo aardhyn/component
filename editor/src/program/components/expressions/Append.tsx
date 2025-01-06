@@ -1,9 +1,14 @@
 import { ReactElement } from 'react';
-import { IsLiteral } from 'types';
-import { Component, Append } from '../types';
-import { IsList, IsSubscript, IsVariable } from 'types/predicates';
 import { GenericExpression } from './Expression';
 import { BlockRoot } from '../generic';
+import {
+  Append,
+  Component,
+  IsList,
+  IsLiteral,
+  IsSubscript,
+  IsVariable,
+} from 'types';
 
 export function AppendBlock({
   block,
