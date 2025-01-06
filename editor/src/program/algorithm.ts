@@ -733,6 +733,7 @@ export namespace algorithm {
           case 'divide':
           case 'modulo':
           case 'exponent':
+          case 'random':
             // @ts-ignore
             if (locale === 'left') draft.expression[0] = component;
             // @ts-ignore
@@ -751,7 +752,6 @@ export namespace algorithm {
           case 'floor':
           case 'ceil':
           case 'log':
-          case 'random':
             // @ts-ignore
             if (locale === 'expression') draft.expression = component;
             break;
