@@ -1,10 +1,9 @@
 import { ReactElement } from 'react';
-import { Branch, Component, Condition, IsCondition } from 'types';
+import { Branch, IsExpression } from 'types';
 import { BlockRoot } from '../generic';
 import { s, styled } from 'theme/stitches.config';
 import GenericBlockSet from './BlockSet';
 import { GenericExpression } from '../expressions/Expression';
-import { IsExpression } from 'types/predicates';
 
 export function BranchBlock({
   block,

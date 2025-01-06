@@ -1,24 +1,14 @@
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 import { Drag } from 'util/Drag';
-import { IsLiteral } from 'types';
-import { ExpressionParent } from './types';
-import {
-  Component,
-  Expression,
-  List,
-  Subscript,
-  ListItem,
-  Literal,
-} from '../types';
-import { IsNumericVariable, IsVariable } from 'types/predicates';
 import { ExpressionDropzone } from 'program/components/dropzone';
 import { GenericExpression } from './Expression';
-import { IsExpression } from '../../../types/predicates';
 import { IconButton } from 'components/ui/Button';
 import { MinusIcon, PlusIcon } from '@radix-ui/react-icons';
-import { useMutateComponent } from '../../store';
-import { uuid } from '../../../util/uuid';
+import { useMutateComponent } from 'program/store';
+import { uuid } from 'util/uuid';
 import produce from 'immer';
+import { ExpressionParent } from './types';
+import { List, Literal, IsExpression } from 'types';
 
 export function ListExpression({
   expression,

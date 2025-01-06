@@ -1,12 +1,11 @@
 import { create } from 'zustand';
 import produce from 'immer';
-import { Component, Variable } from 'types';
+import { Definition, Component } from 'types';
 import { algorithm } from './algorithm';
 import { EmplacementAction, Mutation, Program } from './types';
 import { BLANK_PROGRAM } from 'constants/program';
 import { LOCAL_STORAGE_KEY } from '../constants/program';
 import { ReadPersistent } from 'hooks/usePersistent';
-import { Definition } from 'program/components/types';
 
 // read any existing program from disk
 const defaultProgram =

@@ -1,21 +1,14 @@
 import { ReactElement } from 'react';
 import {
-  DrawRect,
-  Expression,
   Component,
   IsLiteral,
-  IsBinaryOperation,
-  DrawPixel,
+  IsNumericVariable,
+  IsOperation,
+  type DrawPixel,
 } from 'types';
 import { BlockRoot } from '../generic';
 import { s } from 'theme/stitches.config';
-import { BinaryExpression } from 'program/components/expressions/Operation';
-import { LiteralExpression } from '../expressions/Literal';
-import { VariableExpression } from '../expressions/Variable';
-import { IsNumericVariable, IsVariable } from 'types/predicates';
-import { ExpressionDropzone } from 'program/components/dropzone';
 import { GenericExpression } from '../expressions/Expression';
-import { IsOperation } from '../../../types/predicates';
 
 export default function DrawPixelBlock({
   block,

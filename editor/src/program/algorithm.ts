@@ -1,20 +1,18 @@
-import { Emplacement, EmplacementAction, Mutation } from './types';
-import { Block } from 'types';
-import { Expression } from 'program/components/types';
-import produce from 'immer';
+import { Emplacement, EmplacementAction, Mutation } from 'program/types';
 import {
+  Block,
+  Expression,
+  IsBlock,
+  IsCondition,
+  IsList,
+  IsLiteral,
+  IsNumericVariable,
+  IsOperation,
   IsBinaryOperation,
   IsVariable,
   IsSubscript,
-} from '../types/predicates';
-import { IsList } from 'types/predicates';
-import { IsOperation } from '../types/predicates';
-import {
-  IsBlock,
-  IsCondition,
-  IsLiteral,
-  IsNumericVariable,
-} from 'types/predicates';
+} from 'types';
+import produce from 'immer';
 
 /**
  * Program tree mutation algorithms and reducers
@@ -733,6 +731,7 @@ export namespace algorithm {
           case 'divide':
           case 'modulo':
           case 'exponent':
+          case 'random':
             // @ts-ignore
             if (locale === 'left') draft.expression[0] = component;
             // @ts-ignore
@@ -751,7 +750,6 @@ export namespace algorithm {
           case 'floor':
           case 'ceil':
           case 'log':
-          case 'random':
             // @ts-ignore
             if (locale === 'expression') draft.expression = component;
             break;

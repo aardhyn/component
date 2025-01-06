@@ -6,9 +6,6 @@ import {
   DefinitionRValue,
   Literal,
   PrimitiveType,
-} from 'program/components/types';
-import { BlockRoot } from '../generic';
-import {
   IsBinaryOperation,
   IsLiteral,
   IsVariable,
@@ -16,11 +13,12 @@ import {
   IsPrimitive,
   IsSubscript,
   IsList,
-} from 'types/predicates';
+  IsUnaryOperation,
+} from 'types';
+import { BlockRoot } from '../generic';
 import Field from 'components/ui/Field';
 import Badge from 'components/ui/Badge';
 import { GenericExpression } from '../expressions/Expression';
-import { IsUnaryOperation } from '../../../types/predicates';
 
 export function DefinitionBlock({
   block,

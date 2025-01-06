@@ -1,7 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 import { PrintBlock } from './blocks/Print';
-import { Block } from './types';
-import { IsBlock, Component } from 'types';
+import { Block, IsBlock, Component } from 'types';
 import {
   BranchBlock,
   ConditionExpression,

@@ -1,14 +1,15 @@
 import { ReactElement } from 'react';
 import { Drag } from 'util/Drag';
-import { IsLiteral } from 'types';
 import { ExpressionParent } from './types';
-import { Component, Subscript } from '../types';
 import {
+  IsLiteral,
+  Component,
+  Subscript,
   IsList,
   IsNumericVariable,
   IsSubscript,
   IsVariable,
-} from 'types/predicates';
+} from 'types';
 import { ExpressionDropzone } from 'program/components/dropzone';
 import { GenericExpression } from './Expression';
 

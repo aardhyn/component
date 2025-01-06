@@ -1,13 +1,9 @@
-import { CSS } from 'theme/stitches.config';
-import { ReactElement, FocusEvent, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { useMutateComponent } from 'program';
 import { Literal, Primitive, PrimitiveType } from 'types';
 import { ExpressionParent } from './types';
 import { GetBoolFromString } from 'util/string';
-import Field, {
-  FieldBlurHandler,
-  FieldKeyEventHandler,
-} from 'components/ui/Field';
+import Field from 'components/ui/Field';
 import { ExpressionDropzone } from 'program/components/dropzone';
 
 export function LiteralExpression({

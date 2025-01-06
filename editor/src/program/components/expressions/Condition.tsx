@@ -1,21 +1,21 @@
 import { ReactElement } from 'react';
-import { Condition, Component, IsLiteral, ConditionType } from 'types';
-import { Drag } from 'util/Drag';
 import {
+  Condition,
+  Component,
+  IsLiteral,
+  ConditionType,
   IsBooleanVariable,
   IsCondition,
-  IsVariable,
   IsNumericVariable,
-  IsBoolean,
-  IsNumber,
-  IsPrimitive,
-  IsBinaryOperation,
-} from 'types/predicates';
-import { ExpressionParent } from './types';
+  IsOperation,
+  IsSubscript,
+  IsVariable,
+  PrimitiveType,
+} from 'types';
+import { Drag } from 'util/Drag';
 import { ExpressionDropzone } from 'program/components/dropzone';
 import { GenericExpression } from './Expression';
-import { PrimitiveType } from '../types';
-import { IsSubscript, IsOperation } from '../../../types/predicates';
+import { ExpressionParent } from './types';
 
 /**
  * Unary or binary comparison node
@@ -26,7 +26,7 @@ export function ConditionExpression({
   condition,
   preview = false,
 }: {
-  parent: ExpressionParent | undefined;
+  parent?: ExpressionParent;
   condition: Condition;
   preview?: boolean;
 }): ReactElement | null {

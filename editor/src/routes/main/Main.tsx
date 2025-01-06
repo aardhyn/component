@@ -4,11 +4,11 @@ import GenericBlockSet from 'program/components/blocks/BlockSet';
 import { useEffect } from 'react';
 import { LOCAL_STORAGE_KEY } from 'constants/program';
 import { WritePersistent } from 'hooks/usePersistent';
+import useCoreModule from 'hooks/useCoreModule';
 import Field from 'components/ui/Field';
 import Scroll from 'components/ui/Scroll';
 import BottomPane from 'routes/bottom/Bottom';
 import ErrorBoundary from 'exception/ErrorBoundary';
-import useCoreModule from '../../hooks/useCoreModule';
 import {
   DEFAULT_CANVAS_RESOLUTION,
   DEFAULT_CANVAS_RATIO,
@@ -19,7 +19,7 @@ import { PlayIcon, StopIcon } from '@radix-ui/react-icons';
 export default function Main({ css }: { css?: CSS }) {
   const program = useComponentStore((state) => state.program);
 
-  const { module: core, error } = useCoreModule();
+  const { module: core } = useCoreModule();
   const handleRun = () => {
     const ast = JSON.stringify(program?.ast);
     core?.SetCanvasSize(
@@ -42,7 +42,7 @@ export default function Main({ css }: { css?: CSS }) {
               <StopIcon />
             </IconButton>
             <Button leadingIcon={<PlayIcon />} onClick={handleRun}>
-              <span>Run</span>
+              Run
             </Button>
           </>
         )}

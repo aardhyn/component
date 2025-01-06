@@ -1,12 +1,16 @@
 import { ReactElement } from 'react';
-import { IsLiteral } from 'types';
-import { BlockRoot } from '../generic';
-import { IsVariable } from 'types/predicates';
+import {
+  Assignment,
+  Component,
+  IsCondition,
+  IsLiteral,
+  IsOperation,
+  IsVariable,
+} from 'types';
 import { s } from 'theme/stitches.config';
-import { Assignment, Component } from 'types';
 import { useVariableDefinition } from 'program';
 import { GenericExpression } from '../expressions/Expression';
-import { IsOperation, IsCondition } from '../../../types/predicates';
+import { BlockRoot } from '../generic';
 
 export function AssignmentBlock({
   block,

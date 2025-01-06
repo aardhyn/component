@@ -1,9 +1,9 @@
 import { s, styled } from 'theme/stitches.config';
-import { Button, IconButton } from 'components/ui/Button';
-import Field from '../../components/ui/Field';
-import { SyntheticEvent, useState, useEffect, CSSProperties } from 'react';
+import { IconButton } from 'components/ui/Button';
+import Field from 'components/ui/Field';
+import { useState, CSSProperties } from 'react';
 import { useScreen } from 'program';
-import useCoreModule from '../../hooks/useCoreModule';
+import useCoreModule from 'hooks/useCoreModule';
 import Checkbox from 'components/ui/Checkbox';
 import { ResetIcon } from '@radix-ui/react-icons';
 
@@ -19,7 +19,7 @@ const canvasStyles: CSSProperties = {
 export default function GameScreen() {
   return (
     <Root>
-      <canvas id="canvas" style={canvasStyles} />
+      <canvas id="canvas" style={canvasStyles} tabIndex={-1} />
       <Options>
         <Resolution />
         <Functions />

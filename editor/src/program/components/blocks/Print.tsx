@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
-import { Print } from 'types';
+import { IsExpression, type Print } from 'types';
 import { BlockRoot } from '../generic';
-import { IsExpression } from 'types/predicates';
 import { s } from 'theme/stitches.config';
 import { GenericExpression } from '../expressions/Expression';
 

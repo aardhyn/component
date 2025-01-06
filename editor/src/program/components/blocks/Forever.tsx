@@ -1,5 +1,5 @@
-import { s, styled } from 'theme/stitches.config';
-import { Component, Forever, IsLiteral, IsNumericVariable } from 'types';
+import { s } from 'theme/stitches.config';
+import { Forever } from 'types';
 import GenericBlockSet from './BlockSet';
 import { BlockRoot } from '../generic';
 
