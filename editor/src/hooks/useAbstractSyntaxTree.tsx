@@ -8,10 +8,8 @@ const DEFAULT_TAB_SIZE = 2;
 export default function useAbstractSyntaxTree() {
   const [astString, setAstString] = useState<string>('');
   const [error, setError] = useState(DEFAULT_ERROR_STATE);
-  const [program, loadProgram] = useComponentStore((state) => [
-    state.program,
-    state.setProgram,
-  ]);
+  const program = useComponentStore((state) => state.program);
+  const loadProgram = useComponentStore((state) => state.setProgram);
 
   // load test program on mount
   const loadAst = (json: string) => {

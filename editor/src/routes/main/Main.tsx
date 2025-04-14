@@ -72,7 +72,7 @@ const Ribbon = styled(s.div, {
 });
 
 function Canvas() {
-  const [program] = useComponentStore((state) => [state.program]);
+  const program = useComponentStore((state) => state.program);
   if (!program) return null;
   useEffect(() => {
     WritePersistent(LOCAL_STORAGE_KEY, program);
@@ -100,10 +100,8 @@ const CanvasRoot = styled(s.div, {
 });
 
 function ProgramName() {
-  const [name, setName] = useComponentStore((state) => [
-    state.program?.name,
-    state.rename,
-  ]);
+  const name = useComponentStore((state) => state.program?.name);
+  const setName = useComponentStore((state) => state.rename);
 
   return (
     <s.div css={{ flex: 1, d: 'flex', items: 'center', overflow: 'hidden' }}>

@@ -16,10 +16,8 @@ const confirmUpload = () =>
   );
 
 export default function Ribbon({ css }: { css: CSS }) {
-  const [program, setProgram] = useComponentStore((state) => [
-    state.program,
-    state.setProgram,
-  ]);
+  const program = useComponentStore((state) => state.program);
+  const setProgram = useComponentStore((state) => state.setProgram);
 
   const handleDownload = () => {
     const ast = JSON.stringify(program?.ast, null, 2);

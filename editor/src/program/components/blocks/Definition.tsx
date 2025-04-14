@@ -129,7 +129,9 @@ function useComputedPrimitive(
 }
 
 function computeLiteralPrimitive(literal: Literal) {
-  const type = typeof literal.expression ?? UNKNOWN_PRIMITIVE;
+  const type = literal.expression
+    ? typeof literal.expression
+    : UNKNOWN_PRIMITIVE;
   if (IsPrimitive(type)) return type as PrimitiveType;
   throw new Error(
     `Unknown primitive type: ${type}! Failed to compute primitive for literal expression`,

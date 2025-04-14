@@ -6,7 +6,7 @@ import { IconButton } from 'components/ui/Button';
 import { MinusIcon, PlusIcon } from '@radix-ui/react-icons';
 import { useMutateComponent } from 'program/store';
 import { uuid } from 'util/uuid';
-import produce from 'immer';
+import { produce } from 'immer';
 import { ExpressionParent } from './types';
 import { List, Literal, IsExpression } from 'types';
 

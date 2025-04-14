@@ -5,6 +5,8 @@ import {
   ReactNode,
   useMemo,
   useCallback,
+  RefObject,
+  useRef,
 } from 'react';
 import { DropTargetMonitor, useDrag, useDragLayer, useDrop } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
@@ -32,7 +34,8 @@ export namespace Drag {
     component: Component,
     copyOnDrop?: boolean,
   ) {
-    const [{ isDragging }, drag, preview] = useDrag({
+    const ref = useRef<HTMLDivElement>(null);
+    const [{ isDragging }, dragConnector, preview] = useDrag({
       type: 'component',
       item: (): DragItem => ({
         component: structuredClone(component),
@@ -40,6 +43,7 @@ export namespace Drag {
       }),
       collect: (monitor) => ({ isDragging: monitor.isDragging() }),
     });
+    dragConnector(ref);
 
     // hide the default drag screenshot preview
     useEffect(() => {
@@ -55,20 +59,19 @@ export namespace Drag {
         }: {
           children?: ReactNode | ReactNode[];
           css?: CSS;
-        } & HTMLAttributes<HTMLDivElement>) =>
-          (
-            <s.div
-              ref={drag}
-              css={{
-                ...css,
-                touchAction: 'none', // prevent scrolling while dragging on mobile
-              }}
-              {...divProps}
-            >
-              {children}
-            </s.div>
-          ),
-      [drag],
+        } & HTMLAttributes<HTMLDivElement>) => (
+          <s.div
+            ref={ref}
+            css={{
+              ...css,
+              touchAction: 'none', // prevent scrolling while dragging on mobile
+            }}
+            {...divProps}
+          >
+            {children}
+          </s.div>
+        ),
+      [ref],
     );
 
     return {
@@ -112,7 +115,8 @@ export namespace Drag {
       [dropPredicate, onDrop],
     );
 
-    const [{ isOverShallow, isOver }, drop] = useDrop({
+    const ref = useRef<HTMLDivElement>(null);
+    const [{ isOverShallow, isOver }, connectDrop] = useDrop({
       accept: 'component',
       drop: handleDrop,
       collect: (monitor) => ({
@@ -120,6 +124,7 @@ export namespace Drag {
         isOver: monitor.isOver(), // hovered by the cursor regardless of child dropzones
       }),
     });
+    connectDrop(ref);
 
     const Dropzone = useMemo(
       () =>
@@ -130,13 +135,12 @@ export namespace Drag {
         }: {
           children?: ReactNode;
           css?: CSS;
-        } & HTMLAttributes<HTMLDivElement>) =>
-          (
-            <DropzoneRoot ref={drop} css={css} {...divProps}>
-              {children}
-            </DropzoneRoot>
-          ),
-      [drop],
+        } & HTMLAttributes<HTMLDivElement>) => (
+          <DropzoneRoot ref={ref} css={css} {...divProps}>
+            {children}
+          </DropzoneRoot>
+        ),
+      [ref],
     );
 
     return {
@@ -170,7 +174,8 @@ export namespace Drag {
    */
   export function useRemoveComponentOnDrop() {
     const remove = useRemoveComponent();
-    const [{ isOverShallow, isOver }, drop] = useDrop({
+    const ref = useRef<HTMLDivElement>(null);
+    const [{ isOverShallow, isOver }, connectDrop] = useDrop({
       accept: 'component',
       drop: ({ component }: DragItem, monitor) => {
         if (monitor.didDrop()) return; // check if the drop was handled by a child dropzone
@@ -183,6 +188,7 @@ export namespace Drag {
         isOver: monitor.isOver(),
       }),
     });
+    connectDrop(ref);
 
     const Dropzone = useMemo(
       () =>
@@ -192,13 +198,12 @@ export namespace Drag {
         }: {
           children?: ReactElement | (ReactElement | null)[] | null;
           css?: CSS;
-        }) =>
-          (
-            <DropzoneRoot ref={drop} css={css}>
-              {children}
-            </DropzoneRoot>
-          ),
-      [drop],
+        }) => (
+          <DropzoneRoot ref={ref} css={css}>
+            {children}
+          </DropzoneRoot>
+        ),
+      [ref],
     );
 
     return {

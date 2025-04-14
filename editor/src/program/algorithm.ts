@@ -1,3 +1,4 @@
+import { produce } from 'immer';
 import { Emplacement, EmplacementAction, Mutation } from 'program/types';
 import {
   Block,
@@ -12,7 +13,6 @@ import {
   IsVariable,
   IsSubscript,
 } from 'types';
-import produce from 'immer';
 
 /**
  * Program tree mutation algorithms and reducers

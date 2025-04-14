@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import produce from 'immer';
+import { produce } from 'immer';
 import { Definition, Component } from 'types';
 import { algorithm } from './algorithm';
 import { EmplacementAction, Mutation, Program } from './types';
@@ -188,20 +188,17 @@ export function useMutateComponent() {
 }
 
 export function useScreen() {
-  return useComponentStore(
-    (state) =>
-      [
-        state.program?.canvas ?? { width: 0, height: 0 },
-        state.setScreenSize,
-      ] as const,
+  const canvas = useComponentStore(
+    (state) => state.program?.canvas ?? { width: 0, height: 0 },
   );
+  const setScreenSize = useComponentStore((state) => state.setScreenSize);
+  return [canvas, setScreenSize] as const;
 }
 
 export function useVariableStore() {
-  return useComponentStore((state) => ({
-    variables: state.variables,
-    declare: state.declare,
-  }));
+  const variables = useComponentStore((state) => state.variables);
+  const declare = useComponentStore((state) => state.declare);
+  return { variables, declare } as const;
 }
 /**
  * Get a variable by its definition id
