@@ -1,15 +1,14 @@
 services:
   component:
     container_name: app
+    image: component
     build: .
-    env_file:
-      - .env
+    environment:
+      - DEBUG_MODE=${DEBUG_MODE}
+      - NO_EXCEPT=${NO_EXCEPT}
+      - CPP_STD=${CPP_STD}
+      - OPTIMIZATION_LEVEL=${OPTIMIZATION_LEVEL}
+      - MODULE_NAME=${MODULE_NAME}
+      - PORT=${PORT}
     ports:
-      - "${CLIENT_PORT}:${CLIENT_PORT}"
-    volumes:
-      - type: bind
-        source: ./editor/public
-        target: /opt/public
-      - type: bind
-        source: ./editor/src/modules
-        target: /opt/modules
+      - "${PORT}:${PORT}"

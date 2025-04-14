@@ -1,9 +1,10 @@
-editor/node_modules
 editor/src/modules
-
 editor/public/
 !editor/public/fonts
+
+editor/node_modules
 editor/dist
+core/out
 
 .git
 

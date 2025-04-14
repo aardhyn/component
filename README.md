@@ -7,22 +7,20 @@ A visual programming editor and game engine on the web.
 ## Installation
 
 ```bash
-git clone https://github.com/AardhynLavender/Component
-cd Component
+git clone https://github.com/aardhyn/component
 ```
 
 ## Configuration
 
-Create an `.env` file
+Create the `.env` file
 
 ```bash
 cp template.env .env
-vim .env
 ```
 
-View the [`template.env`](./template.env) for more information.
+## Build
 
-## Execution
+### Web
 
 > Requires [GNU Make](https://www.gnu.org/software/make/) (agnostic build tool) and [Docker](https://docs.docker.com/?_gl=1*1dpf1tn*_ga*ODY2NDcwMzM5LjE2NjgwMjM2NDE.*_ga_XJWPQMJYHQ*MTY4OTg1MTQwMC40Mi4xLjE2ODk4NTE0MDAuNjAuMC4w) (container management).
 
@@ -32,28 +30,15 @@ Build and run everything in a docker container
 make
 ```
 
-View `http://localhost:<CLIENT_PORT>` in a web browser.
+View `http://localhost:$PORT` in a web browser.
 
-View the [`Makefile`](./Makefile) for more build, execution, and cleaning rules.
+### Native
 
-#### non-containerized build
-
-> Requires [GNU Make](https://www.gnu.org/software/make/) (agnostic build tool), [Node](https://nodejs.org/en/docs) (JavaScript Runtime), and [Emscripten](https://emscripten.org/docs/introducing_emscripten/index.html) (C and C++ WebAssembly compiler toolchain based on LLVM/Clang)
-
-```bash
-make install-editor # installs editor dependencies
-make build-core     # compiles core into wasm
-make build-editor   # builds the editor ( depends on core )
-make run-editor     # run on the configured port ( 4096 )
-```
-
-### Native Core
-
-> Requires [gcc](https://gcc.gnu.org/) (compiler collection), [SDL2](https://www.libsdl.org/) (C based cross-platform software development library), and [GNU Make](https://www.gnu.org/software/make/) (agnostic build tool)
+> Requires [gcc](https://gcc.gnu.org/), [SDL2](https://www.libsdl.org/), and [GNU Make](https://www.gnu.org/software/make/)
 
 It's possible to build the core as a headless CLI native executable.
 
-As I've avoided using **CMake** so far, the Makefile rule for native builds is hardcoded with **gcc** — I've not tested **Clang** at this stage, so make a PR if your _really_ want to use it.
+As I've avoided using **CMake** so far, the Makefile rule for native builds is hardcoded with **gcc**.
 
 You will need to download and extract the [SDL2](https://www.libsdl.org/) library. **SDL** is not bundled with any compilers outside of emscripten that I know of.
 
@@ -64,26 +49,16 @@ You will need to download and extract the [SDL2](https://www.libsdl.org/) librar
 Add `SDL2.dll` to `core/lib`. Then build the core with `gcc`
 
 ```bash
-make build-core-native
+cd core
+make native
 ```
 
-Write a program in the web client, `download` it, and pass it to `component.exe`
+Write a program in the web client, `download` it, and pass it to the `component` executable
 
 ```bash
-./component.exe program.json
+./component program.json
 ```
 
 #### Other Systems
 
-> I've not tested compilation on MacOS or Linux distributions.
-
-## References
-
-|Tool|Description|
-|:---|:---|
-|GitHub Copilot|Aided in code generation|
-|ChatGPT|For boucinng ideas and issues off, never responsible for writing production code|
-
-## License
-
-This software uses the [MIT License](LICENSE.md)
+I've not tested the native build on macOS or Linux.
